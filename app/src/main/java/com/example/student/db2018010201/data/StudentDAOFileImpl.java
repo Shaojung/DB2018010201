@@ -4,8 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,11 +24,30 @@ public class StudentDAOFileImpl {
     public StudentDAOFileImpl(Context context)
     {
         this.context = context;
+        loadFile();
     }
     public void add(Student s)
     {
         mylist.add(s);
         saveFile();
+    }
+    public void loadFile()
+    {
+        File f = new File(context.getFilesDir(), "mydata.txt");
+        FileReader fr = null;
+        try {
+            fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            String str = br.readLine();
+            Gson gson = new Gson();
+            mylist = gson.fromJson(str, new TypeToken<ArrayList<Student>>(){}.getType());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
     public void saveFile()
     {
