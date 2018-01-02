@@ -9,17 +9,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.student.db2018010201.data.Student;
+import com.example.student.db2018010201.data.StudentDAOFileImpl;
 import com.example.student.db2018010201.data.StudentDAOImpl;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
-    public static StudentDAOImpl dao = new StudentDAOImpl();
+    public static StudentDAOFileImpl dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dao = new StudentDAOFileImpl(this);
         lv = (ListView) findViewById(R.id.listView);
         Student s1 = new Student(1, "Bob", 95);
         Student s2 = new Student(2, "Mary", 90);

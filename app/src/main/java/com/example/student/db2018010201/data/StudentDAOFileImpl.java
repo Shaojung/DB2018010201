@@ -3,7 +3,11 @@ package com.example.student.db2018010201.data;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -20,10 +24,21 @@ public class StudentDAOFileImpl {
     public void add(Student s)
     {
         mylist.add(s);
+        saveFile();
     }
     public void saveFile()
     {
         File f = new File(context.getFilesDir(), "mydata.txt");
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(f);
+            Gson gson = new Gson();
+            String str = gson.toJson(mylist);
+            fw.write(str);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     public void printOut()
