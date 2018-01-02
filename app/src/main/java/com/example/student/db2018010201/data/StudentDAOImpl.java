@@ -21,4 +21,8 @@ public class StudentDAOImpl {
             Log.d("DATA", t.toString());
         }
     }
+    public ArrayList<Student> getList()
+    {
+        return mylist;
+    }
 }
