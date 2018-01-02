@@ -3,6 +3,8 @@ package com.example.student.db2018010201;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -43,5 +45,18 @@ public class MainActivity extends AppCompatActivity {
                 str
         );
         lv.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        AddDialogFragment dialog = new AddDialogFragment();
+        dialog.show(getFragmentManager(), "AddDialog");
+        return super.onOptionsItemSelected(item);
     }
 }
