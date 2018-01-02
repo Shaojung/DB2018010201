@@ -1,7 +1,9 @@
 package com.example.student.db2018010201.data;
 
+import android.content.Context;
 import android.util.Log;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -10,9 +12,19 @@ import java.util.ArrayList;
 
 public class StudentDAOFileImpl {
     public static ArrayList<Student> mylist = new ArrayList();
+    Context context;
+    public StudentDAOFileImpl(Context context)
+    {
+        this.context = context;
+    }
     public void add(Student s)
     {
         mylist.add(s);
+    }
+    public void saveFile()
+    {
+        File f = new File(context.getFilesDir(), "mydata.txt");
+
     }
     public void printOut()
     {
