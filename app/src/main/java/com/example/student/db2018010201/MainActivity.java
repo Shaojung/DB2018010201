@@ -15,13 +15,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
-    StudentDAOImpl dao;
+    public static StudentDAOImpl dao = new StudentDAOImpl();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lv = (ListView) findViewById(R.id.listView);
-        dao = new StudentDAOImpl();
         Student s1 = new Student(1, "Bob", 95);
         Student s2 = new Student(2, "Mary", 90);
         Student s3 = new Student(3, "Peter", 98);
@@ -31,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
         dao.printOut();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    public void refreshData()
+    {
         String str[] = new String[dao.getList().size()];
         int i;
         for (i=0;i<dao.getList().size();i++)
@@ -48,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        refreshData();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         AddDialogFragment dialog = new AddDialogFragment();
         dialog.show(getFragmentManager(), "AddDialog");
+
         return super.onOptionsItemSelected(item);
     }
 }
