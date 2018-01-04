@@ -112,7 +112,16 @@ public class StudentDAOFileImpl implements StudentDAO {
 
     @Override
     public void update(Student s) {
-
+        for (Student t : mylist)
+        {
+            if (t.id == s.id)
+            {
+                t.name = s.name;
+                t.score = s.score;
+                break;
+            }
+        }
+        saveFile();
     }
 
     @Override

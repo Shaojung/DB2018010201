@@ -3,6 +3,7 @@ package com.example.student.db2018010201;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,5 +27,14 @@ public class EditActivity extends AppCompatActivity {
         tv4.setText(String.valueOf(s.id));
         ed4.setText(s.name);
         ed6.setText(String.valueOf(s.score));
+    }
+    public void clickUpdate(View v)
+    {
+        Student s = new Student(
+                    id, ed4.getText().toString(),
+                    Integer.valueOf(ed6.getText().toString())
+                    );
+        MainActivity.dao.update(s);
+        finish();
     }
 }
