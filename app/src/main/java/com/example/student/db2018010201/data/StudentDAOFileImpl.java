@@ -27,10 +27,23 @@ public class StudentDAOFileImpl implements StudentDAO {
         loadFile();
     }
     @Override
-    public void add(Student s)
+    public boolean add(Student s)
     {
-        mylist.add(s);
-        saveFile();
+        boolean isAdd = true;
+        for (Student tmp : mylist)
+        {
+            if (tmp.id == s.id)
+            {
+                isAdd = false;
+                break;
+            }
+        }
+        if (isAdd)
+        {
+            mylist.add(s);
+            saveFile();
+        }
+        return isAdd;
     }
     public void loadFile()
     {

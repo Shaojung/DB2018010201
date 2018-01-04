@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 
 public interface StudentDAO {
-    public void add(Student s);
+    public boolean add(Student s);
     public ArrayList<Student> getList();
     public void printOut();
 }

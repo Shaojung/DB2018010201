@@ -11,9 +11,22 @@ import java.util.ArrayList;
 public class StudentDAOImpl implements StudentDAO {
     public static ArrayList<Student> mylist = new ArrayList();
     @Override
-    public void add(Student s)
+    public boolean add(Student s)
     {
-        mylist.add(s);
+        boolean isAdd = true;
+        for (Student tmp : mylist)
+        {
+            if (tmp.id == s.id)
+            {
+                isAdd = false;
+                break;
+            }
+        }
+        if (isAdd)
+        {
+            mylist.add(s);
+        }
+        return isAdd;
     }
     public void printOut()
     {
