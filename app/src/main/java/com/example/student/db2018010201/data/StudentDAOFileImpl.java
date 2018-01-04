@@ -98,6 +98,15 @@ public class StudentDAOFileImpl implements StudentDAO {
 
     @Override
     public boolean delete(int id) {
+        int i;
+        for (i=mylist.size()-1;i>=0;i--)
+        {
+            if (mylist.get(i).id == id)
+            {
+                mylist.remove(i);
+            }
+        }
+        saveFile();
         return false;
     }
 

@@ -31,5 +31,12 @@ public class DetailActivity extends AppCompatActivity {
         MainActivity.dao.delete(id);
         finish();
     }
+    public void clickEdit(View v)
+    {
+        Intent it = new Intent(DetailActivity.this, EditActivity.class);
+        it.putExtra("id", id);
+        startActivity(it);
+
+    }
 
 }
