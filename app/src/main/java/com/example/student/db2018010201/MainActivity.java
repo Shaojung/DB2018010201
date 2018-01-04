@@ -1,10 +1,13 @@
 package com.example.student.db2018010201;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -14,6 +17,7 @@ import com.example.student.db2018010201.data.StudentDAOFileImpl;
 import com.example.student.db2018010201.data.StudentDAOImpl;
 
 import java.util.ArrayList;
+import java.util.zip.DeflaterInputStream;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
@@ -31,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
         dao.add(s2);
         dao.add(s3);
         dao.printOut();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int id = dao.getList().get(i).id;
+                Intent it = new Intent(MainActivity.this, DetailActivity.class);
+                it.putExtra("id", id);
+                startActivity(it);
+            }
+        });
     }
 
     public void refreshData()
