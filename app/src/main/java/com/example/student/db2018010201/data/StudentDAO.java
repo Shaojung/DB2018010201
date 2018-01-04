@@ -11,4 +11,6 @@ public interface StudentDAO {
     public ArrayList<Student> getList();
     public void printOut();
     public Student getStudent(int id);
+    public boolean delete(int id);
+    public void update(Student s);
 }

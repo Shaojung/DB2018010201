@@ -97,6 +97,16 @@ public class StudentDAOFileImpl implements StudentDAO {
     }
 
     @Override
+    public boolean delete(int id) {
+        return false;
+    }
+
+    @Override
+    public void update(Student s) {
+
+    }
+
+    @Override
     public ArrayList<Student> getList()
     {
         return mylist;

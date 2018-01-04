@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dao = new StudentDAOFileImpl(this);
+        dao = new StudentDAOImpl();
         lv = (ListView) findViewById(R.id.listView);
         Student s1 = new Student(1, "Bob", 95);
         Student s2 = new Student(2, "Mary", 90);
