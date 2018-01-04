@@ -41,4 +41,14 @@ public class StudentDAOImpl implements StudentDAO {
     {
         return mylist;
     }
+
+    @Override
+    public Student getStudent(int id) {
+        for (Student s : mylist)
+        {
+            if (s.id == id)
+                return s;
+        }
+        return null;
+    }
 }
