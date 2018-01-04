@@ -8,8 +8,9 @@ import java.util.ArrayList;
  * Created by student on 2018/1/2.
  */
 
-public class StudentDAOImpl {
+public class StudentDAOImpl implements StudentDAO {
     public static ArrayList<Student> mylist = new ArrayList();
+    @Override
     public void add(Student s)
     {
         mylist.add(s);
@@ -21,6 +22,8 @@ public class StudentDAOImpl {
             Log.d("DATA", t.toString());
         }
     }
+
+    @Override
     public ArrayList<Student> getList()
     {
         return mylist;

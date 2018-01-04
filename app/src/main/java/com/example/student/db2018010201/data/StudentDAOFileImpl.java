@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by student on 2018/1/2.
  */
 
-public class StudentDAOFileImpl {
+public class StudentDAOFileImpl implements StudentDAO {
     public static ArrayList<Student> mylist = new ArrayList();
     Context context;
     public StudentDAOFileImpl(Context context)
@@ -26,6 +26,7 @@ public class StudentDAOFileImpl {
         this.context = context;
         loadFile();
     }
+    @Override
     public void add(Student s)
     {
         mylist.add(s);
@@ -71,6 +72,7 @@ public class StudentDAOFileImpl {
             Log.d("DATA", t.toString());
         }
     }
+    @Override
     public ArrayList<Student> getList()
     {
         return mylist;

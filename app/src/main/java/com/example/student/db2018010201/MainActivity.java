@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.student.db2018010201.data.Student;
+import com.example.student.db2018010201.data.StudentDAO;
 import com.example.student.db2018010201.data.StudentDAOFileImpl;
 import com.example.student.db2018010201.data.StudentDAOImpl;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
-    public static StudentDAOFileImpl dao;
+    public static StudentDAO dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
