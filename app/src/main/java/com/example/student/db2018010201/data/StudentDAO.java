@@ -10,4 +10,5 @@ public interface StudentDAO {
     public boolean add(Student s);
     public ArrayList<Student> getList();
     public void printOut();
+    public Student getStudent(int id);
 }
