@@ -66,7 +66,10 @@ public class StudentDAODBImpl implements StudentDAO {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        MyHelper helper = new MyHelper(context);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("phone", "_id=?", new String[] {String.valueOf(id)});
+        return true;
     }
 
     @Override
