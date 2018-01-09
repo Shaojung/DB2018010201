@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         Student s1 = new Student(1, "Bob", 95);
         Student s2 = new Student(2, "Mary", 90);
         Student s3 = new Student(3, "Peter", 98);
-        dao.add(s1);
-        dao.add(s2);
-        dao.add(s3);
+//        dao.add(s1);
+//        dao.add(s2);
+//        dao.add(s3);
         dao.printOut();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

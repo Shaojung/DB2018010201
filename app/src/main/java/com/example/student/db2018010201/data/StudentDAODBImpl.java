@@ -55,7 +55,13 @@ public class StudentDAODBImpl implements StudentDAO {
 
     @Override
     public Student getStudent(int id) {
-        return null;
+        MyHelper helper = new MyHelper(context);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor c = db.query("phone", new String[] {"_id", "name", "score"},
+                "_id=?", new String[] {String.valueOf(id)}, null, null, null);
+        c.moveToFirst();
+        Student s = new Student(c.getInt(0), c.getString(1), c.getInt(2));
+        return s;
     }
 
     @Override
