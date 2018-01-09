@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.student.db2018010201.data.Student;
 import com.example.student.db2018010201.data.StudentDAO;
+import com.example.student.db2018010201.data.StudentDAODBImpl;
 import com.example.student.db2018010201.data.StudentDAOFileImpl;
 import com.example.student.db2018010201.data.StudentDAOImpl;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dao = new StudentDAOImpl();
+        dao = new StudentDAODBImpl();
         lv = (ListView) findViewById(R.id.listView);
         Student s1 = new Student(1, "Bob", 95);
         Student s2 = new Student(2, "Mary", 90);
